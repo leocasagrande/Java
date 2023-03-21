@@ -1,23 +1,36 @@
-package Fix;
-
+package Modulo;
 import java.util.Scanner;
 
-import entities.Dolar;
+import entities.Student;
 
 public class Modulo {
 
 	public static void main(String[] args) {
-
+		
 		Scanner sc = new Scanner(System.in);
 
-		System.out.print("Informe o valor do dollar: ");
-		Dolar.dollarPrice = sc.nextDouble();
-		System.out.print("Informe a quantia que quer comprar de dollar: ");
-		Dolar.dollarAmount = sc.nextDouble();
-
-		System.out.print("Amount to be paid in reais = " + Dolar.AmountToPay());
-
+		Student student;
+		
+		student = new Student();
+		
+		System.out.print("Informe o nome do aluno: ");
+		student.name = sc.nextLine();
+		System.out.print("Informe as três notas do aluno: ");
+		student.a = sc.nextDouble();
+		student.b = sc.nextDouble();
+		student.c = sc.nextDouble();
+		student.grade();
+		
+		if(student.grade() < 60) {
+			System.out.print("ALUNO " + student.name +  " FAILED. NEEDS MORE " + student.notaFalta() + "POINTS");
+		}
+		else {
+			System.out.print("ALUNO " + student.name +  " PASSES WITH " + student.grade());
+		}
+		
+		
 		sc.close();
 	}
+
 
 }
